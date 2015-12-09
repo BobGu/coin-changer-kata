@@ -1,4 +1,4 @@
 (ns coin-changer.core)
-(defn change-coins
+(defn amount-of-quarters
   [pennies]
-  (str (/ pennies 25) " quarter(s)"))
+  (int (Math/floor (/ pennies 25))))
