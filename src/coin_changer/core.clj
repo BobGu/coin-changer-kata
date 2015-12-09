@@ -19,6 +19,10 @@
   [pennies]
   (- pennies (* 10 (amount-of-dimes pennies))))
 
+(defn pennies-after-finding-nickels
+  [pennies]
+  (- pennies (* 5 (amount-of-nickels pennies))))
+
 (defn change-coins
   [pennies]
   (str
