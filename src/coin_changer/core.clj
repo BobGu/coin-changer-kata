@@ -7,6 +7,10 @@
   [pennies]
   (int (Math/floor (/ pennies 10))))
 
+(defn amount-of-nickels
+  [pennies]
+  (int (Math/floor (/ pennies 5))))
+
 (defn pennies-after-finding-quarters
   [pennies]
   (- pennies (* 25 (amount-of-quarters pennies))))

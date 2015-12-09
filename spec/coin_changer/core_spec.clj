@@ -21,6 +21,10 @@
   (it "takes 9 cents and return 0"
     (should= 0 (amount-of-dimes 9))))
 
+(describe "amount-of-nickels"
+  (it "takes 9 cents and returns 1"
+    (should= 1 (amount-of-nickels 9))))
+
 (describe "pennies-after-finding-quarters"
 
   (it "takes 26 cents and return 1"
@@ -30,5 +34,7 @@
 
   (it "takes 35 cents and returns 1 quarter and 1 dimes"
     (should= "1 quarter(s) 1 dime(s)" (change-coins 35))))
+
+
 
 (run-specs)
