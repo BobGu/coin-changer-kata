@@ -23,9 +23,14 @@
   [pennies]
   (- pennies (* 5 (amount-of-nickels pennies))))
 
+(defn remaining-pennies
+  [pennies]
+  (pennies-after-finding-nickels (pennies-after-finding-dimes (pennies-after-finding-quarters pennies))))
+
 (defn change-coins
   [pennies]
   (str
     (amount-of-quarters pennies) " quarter(s) "
     (amount-of-dimes (pennies-after-finding-quarters pennies)) " dime(s) "
-    (amount-of-nickels (pennies-after-finding-dimes (pennies-after-finding-quarters pennies)))" nickel(s)"))
+    (amount-of-nickels (pennies-after-finding-dimes (pennies-after-finding-quarters pennies)))" nickel(s) "
+    (remaining-pennies pennies) " pennies"))

@@ -41,10 +41,16 @@
 (describe "change-coins"
 
   (it "takes 35 cents and returns 1 quarter 1 dime"
-    (should= "1 quarter(s) 1 dime(s) 0 nickel(s)" (change-coins 35)))
+    (should= "1 quarter(s) 1 dime(s) 0 nickel(s) 0 pennies" (change-coins 35)))
 
   (it "takes 40 cents and returns 1 quarter 1 dime and 1 nickel"
-    (should= "1 quarter(s) 1 dime(s) 1 nickel(s)" (change-coins 40))))
+    (should= "1 quarter(s) 1 dime(s) 1 nickel(s) 0 pennies" (change-coins 40)))
+
+  (it "takes 44 cents and returns 1 quarter 1 dime and 1 nickels and 4 pennies"
+    (should= "1 quarter(s) 1 dime(s) 1 nickel(s) 4 pennies" (change-coins 44)))
+
+  (it "takes 0 cents and returns 0 quarters dimes nickels and pennies"
+    (should= "0 quarter(s) 0 dime(s) 0 nickel(s) 0 pennies" (change-coins 0))))
 
 
 (run-specs)
