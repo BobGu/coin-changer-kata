@@ -25,18 +25,18 @@
   (it "takes 9 cents and returns 1"
     (should= 1 (amount-of-nickels 9))))
 
-(describe "pennies-after-finding-quarters"
+(describe "change-after-finding-quarters"
 
   (it "takes 26 cents and return 1"
-    (should= 1 (pennies-after-finding-quarters 26))))
+    (should= 1 (change-after-finding-quarters 26))))
 
-(describe "pennies-after-finding-dimes"
+(describe "change-after-finding-dimes"
   (it "takes 17 cents and return 7"
-    (should= 7 (pennies-after-finding-dimes 17))))
+    (should= 7 (change-after-finding-dimes 17))))
 
-(describe "pennies-after-finding-nickels"
+(describe "change-after-finding-nickels"
   (it "takes 9 cents and returns 4"
-    (should= 4 (pennies-after-finding-nickels 9))))
+    (should= 4 (change-after-finding-nickels 9))))
 
 (describe "change-coins"
 

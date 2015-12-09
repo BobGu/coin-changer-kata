@@ -11,26 +11,26 @@
   [pennies]
   (int (Math/floor (/ pennies 5))))
 
-(defn pennies-after-finding-quarters
-  [pennies]
-  (- pennies (* 25 (amount-of-quarters pennies))))
+(defn change-after-finding-quarters
+  [change]
+  (- change (* 25 (amount-of-quarters change))))
 
-(defn pennies-after-finding-dimes
-  [pennies]
-  (- pennies (* 10 (amount-of-dimes pennies))))
+(defn change-after-finding-dimes
+  [change]
+  (- change (* 10 (amount-of-dimes change))))
 
-(defn pennies-after-finding-nickels
-  [pennies]
-  (- pennies (* 5 (amount-of-nickels pennies))))
+(defn change-after-finding-nickels
+  [change]
+  (- change (* 5 (amount-of-nickels change))))
 
 (defn remaining-pennies
   [pennies]
-  (pennies-after-finding-nickels pennies))
+  (change-after-finding-nickels pennies))
 
 (defn change-coins
   [pennies]
   (str
     (amount-of-quarters pennies) " quarter(s) "
-    (amount-of-dimes (pennies-after-finding-quarters pennies)) " dime(s) "
-    (amount-of-nickels (pennies-after-finding-dimes (pennies-after-finding-quarters pennies)))" nickel(s) "
+    (amount-of-dimes (change-after-finding-quarters pennies)) " dime(s) "
+    (amount-of-nickels (change-after-finding-dimes (change-after-finding-quarters pennies)))" nickel(s) "
     (remaining-pennies pennies) " pennies"))
