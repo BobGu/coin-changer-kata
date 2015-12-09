@@ -25,7 +25,7 @@
 
 (defn remaining-pennies
   [pennies]
-  (pennies-after-finding-nickels (pennies-after-finding-dimes (pennies-after-finding-quarters pennies))))
+  (pennies-after-finding-nickels pennies))
 
 (defn change-coins
   [pennies]
