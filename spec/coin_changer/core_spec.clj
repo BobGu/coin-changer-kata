@@ -30,11 +30,14 @@
   (it "takes 26 cents and return 1"
     (should= 1 (pennies-after-finding-quarters 26))))
 
+(describe "pennies-after-finding-dimes"
+  (it "takes 17 cents and return 7"
+    (should= 7 (pennies-after-finding-dimes 17))))
+
 (describe "change-coins"
 
   (it "takes 35 cents and returns 1 quarter and 1 dimes"
     (should= "1 quarter(s) 1 dime(s)" (change-coins 35))))
-
 
 
 (run-specs)

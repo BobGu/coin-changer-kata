@@ -15,6 +15,10 @@
   [pennies]
   (- pennies (* 25 (amount-of-quarters pennies))))
 
+(defn pennies-after-finding-dimes
+  [pennies]
+  (- pennies (* 10 (amount-of-dimes pennies))))
+
 (defn change-coins
   [pennies]
   (str(amount-of-quarters pennies) " quarter(s) "
