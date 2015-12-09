@@ -5,7 +5,10 @@
 (describe "amount-of-quarters"
 
   (it "can take 25 cents and return 1"
-    (should= 1 (amount-of-quarters 25))))
+    (should= 1 (amount-of-quarters 25)))
+
+  (it "can take 24 cents and return 0"
+    (should= 0 (amount-of-quarters 24))))
 
 (describe "amount-of-dimes"
 
