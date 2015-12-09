@@ -17,7 +17,9 @@
 
 (defn change-after-finding-dimes
   [change]
-  (- change (* 10 (amount-of-dimes change))))
+  (-
+    (change-after-finding-quarters change)
+    (* 10 (amount-of-dimes (change-after-finding-quarters change)))))
 
 (defn change-after-finding-nickels
   [change]
@@ -32,5 +34,5 @@
   (str
     (amount-of-quarters pennies) " quarter(s) "
     (amount-of-dimes (change-after-finding-quarters pennies)) " dime(s) "
-    (amount-of-nickels (change-after-finding-dimes (change-after-finding-quarters pennies)))" nickel(s) "
+    (amount-of-nickels (change-after-finding-dimes pennies))" nickel(s) "
     (remaining-pennies pennies) " pennies"))
