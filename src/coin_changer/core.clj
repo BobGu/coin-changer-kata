@@ -21,13 +21,9 @@
     (change-after-finding-quarters change)
     (* 10 (amount-of-dimes (change-after-finding-quarters change)))))
 
-(defn change-after-finding-nickels
-  [change]
-  (- change (* 5 (amount-of-nickels change))))
-
 (defn remaining-pennies
   [pennies]
-  (change-after-finding-nickels pennies))
+  (mod pennies 5))
 
 (defn change-coins
   [pennies]

@@ -34,10 +34,6 @@
   (it "takes 17 cents and return 7"
     (should= 7 (change-after-finding-dimes 17))))
 
-(describe "change-after-finding-nickels"
-  (it "takes 9 cents and returns 4"
-    (should= 4 (change-after-finding-nickels 9))))
-
 (describe "change-coins"
 
   (it "takes 35 cents and returns 1 quarter 1 dime"
