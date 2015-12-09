@@ -36,8 +36,11 @@
 
 (describe "change-coins"
 
-  (it "takes 35 cents and returns 1 quarter and 1 dimes"
-    (should= "1 quarter(s) 1 dime(s)" (change-coins 35))))
+  (it "takes 35 cents and returns 1 quarter 1 dime"
+    (should= "1 quarter(s) 1 dime(s) 0 nickel(s)" (change-coins 35)))
+
+  (it "takes 40 cents and returns 1 quarter 1 dime and 1 nickel"
+    (should= "1 quarter(s) 1 dime(s) 1 nickel(s)" (change-coins 40))))
 
 
 (run-specs)

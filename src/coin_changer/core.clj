@@ -21,5 +21,7 @@
 
 (defn change-coins
   [pennies]
-  (str(amount-of-quarters pennies) " quarter(s) "
-    (amount-of-dimes (pennies-after-finding-quarters pennies)) " dime(s)"))
+  (str
+    (amount-of-quarters pennies) " quarter(s) "
+    (amount-of-dimes (pennies-after-finding-quarters pennies)) " dime(s) "
+    (amount-of-nickels (pennies-after-finding-dimes (pennies-after-finding-quarters pennies)))" nickel(s)"))
