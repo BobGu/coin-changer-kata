@@ -3,6 +3,9 @@
 (def coin-type-and-value
   {:quarter 25 :dime 10 :nickel 5 :penny 1})
 
+(def coin-types
+  (keys coin-type-and-value))
+
 (defn make-change?
   [coin-type remaining-change]
   (if (<= (coin-type coin-type-and-value) remaining-change) true false))
@@ -23,6 +26,9 @@
         (assoc
           coin-type-and-quantity
           current-coin-type
-          (inc (current-coin-type coin-type-and-quantity)))))
-      (print ""))
-  (pretty-print coin-type-and-quantity))
+          (inc (current-coin-type coin-type-and-quantity))))
+      (coin-changer
+        change-left
+        (nth coin-types (inc (.indexOf coin-types current-coin-type)))
+        coin-type-and-quantity))
+  (pretty-print coin-type-and-quantity)))
