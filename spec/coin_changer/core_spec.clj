@@ -13,10 +13,14 @@
 (describe "coin-changer"
   (around [it]
     (with-out-str [it]))
-    
-  (it "returns 1 quarter when given 25 cents"
+
+  (it "prints 1 quarter when given 25 cents"
     (should= (with-out-str "1 quarter(s) 0 dime(s) 0 nickel(s) 0 penny(s)")
-    (coin-changer 25 :quarter {:quarter 0 :dime 0 :nickel 0 :penny 0}))))
+    (coin-changer 25 :quarter {:quarter 0 :dime 0 :nickel 0 :penny 0})))
+
+  (it "prints 1 quarter and 1 dime given 35 cents"
+    (should= (with-out-str "1 quarter(s) 1 dime(s) 0 nickel(s) 0 penny(s)")
+    (coin-changer 35 :quarter {:quarter 0 :dime 0 :nickel 0 :penny 0}))))
 
 (describe "pretty-print"
   (around [it]
