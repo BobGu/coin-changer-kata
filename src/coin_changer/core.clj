@@ -7,6 +7,12 @@
   [coin-type remaining-change]
   (if (<= (coin-type coin-type-and-value) remaining-change) true false))
 
+(defn pretty-print
+  [coin-type-and-quantity]
+  (doseq [[k v] coin-type-and-quantity]
+    (print v (str (clojure.string/replace k #":" "") "(s) "))
+    ))
+
 (defn coin-changer
   [change-left current-coin-type coin-type-and-quantity]
   (if (> change-left 0)
@@ -18,11 +24,5 @@
           coin-type-and-quantity
           current-coin-type
           (inc (current-coin-type coin-type-and-quantity)))))
-      (print "Can't make no more change"))
-  (print coin-type-and-quantity))
-
-(defn pretty-print
-  [coin-type-and-quantity]
-  (doseq [[k v] coin-type-and-quantity]
-    (print v (str (clojure.string/replace k #":" "") "(s) "))
-    ))
+      (print ""))
+  (pretty-print coin-type-and-quantity))
