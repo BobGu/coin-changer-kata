@@ -5,9 +5,10 @@
 (describe "coins"
 
   (it "should give me a list of coins"
-    (should= ["quarter" "dime" "nickel" "penny"] coin-types)))
+    (should= {:quarter 25 :dime 10 :nickel 5 :penny 1} coin-type-and-value)))
 
 (describe "make-change?"
   (it "returns true if coin denomination is greater than change left"
-    (should (make-change? 25 26))))
+    (should (make-change? :quarter 26))))
+
 (run-specs)
