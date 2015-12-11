@@ -24,7 +24,11 @@
 
   (it "prints 3 quarters 1 dimes 0 nickel and 4 pennies given 94 cents"
     (should= "3 quarter(s) 1 dime(s) 1 nickel(s) 4 penny(s) "
-    (with-out-str (coin-changer 94 :quarter {:quarter 0 :dime 0 :nickel 0 :penny 0})))))
+    (with-out-str (coin-changer 94 :quarter {:quarter 0 :dime 0 :nickel 0 :penny 0}))))
+
+  (it "tail recursion using a lot of change"
+    (should= "400000 quarter(s) 0 dime(s) 0 nickel(s) 0 penny(s) "
+    (with-out-str (coin-changer 10000000 :quarter {:quarter 0 :dime 0 :nickel 0 :penny 0})))))
 
 (describe "pretty-print"
   (around [it]
