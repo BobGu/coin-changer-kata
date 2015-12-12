@@ -2,40 +2,29 @@
   (:require [speclj.core :refer :all]
             [coin-changer.core :refer :all]))
 
-(describe "coins"
-  (it "should give me a list of coins"
-    (should= {:quarter 25 :dime 10 :nickel 5 :penny 1} coin-type-and-value)))
-
-(describe "make-change?"
-  (it "returns true if coin denomination is greater than change left"
-    (should (make-change? :quarter 26))))
-
 (describe "coin-changer"
-  (around [it]
-    (with-out-str (it)))
+  (it "returns [0 0 0 0] when given 0 cents"
+    (should= [0 0 0 0] (coin-changer 0)))
 
-  (it "prints 1 quarter when given 25 cents"
-    (should= "1 quarter(s) 0 dime(s) 0 nickel(s) 0 penny(s) "
-    (with-out-str (coin-changer 25 :quarter {:quarter 0 :dime 0 :nickel 0 :penny 0}))))
+  (it "returns [0 0 0 1] when give 1 cent"
+    (should= [0 0 0 1] (coin-changer 1)))
 
-  (it "prints 1 quarter and 1 dime given 35 cents"
-    (should= "1 quarter(s) 1 dime(s) 0 nickel(s) 0 penny(s) "
-    (with-out-str (coin-changer 35 :quarter {:quarter 0 :dime 0 :nickel 0 :penny 0}))))
+  (it "returns [0 0 1 0] when given 5 cents"
+    (should= [0 0 1 0] (coin-changer 5)))
 
-  (it "prints 3 quarters 1 dimes 0 nickel and 4 pennies given 94 cents"
-    (should= "3 quarter(s) 1 dime(s) 1 nickel(s) 4 penny(s) "
-    (with-out-str (coin-changer 94 :quarter {:quarter 0 :dime 0 :nickel 0 :penny 0}))))
+  (it "returns [0 1 0 0] when given 5 cents"
+    (should= [0 1 0 0] (coin-changer 10)))
 
-  (it "tail recursion using a lot of change"
-    (should= "400000 quarter(s) 0 dime(s) 0 nickel(s) 0 penny(s) "
-    (with-out-str (coin-changer 10000000 :quarter {:quarter 0 :dime 0 :nickel 0 :penny 0})))))
+  (it "returns [1 0 0 0] when given 5 cents"
+    (should= [1 0 0 0] (coin-changer 25)))
 
-(describe "pretty-print"
-  (around [it]
-    (with-out-str (it)))
+  (it "returns [1 1 1 1] when given 41 cents"
+    (should= [1 1 1 1] (coin-changer 41)))
 
-  (it "should print the type of coin and quantity in a purrrty format"
-    (should= "1 quarter(s) 0 dime(s) 0 nickel(s) 0 penny(s) "
-    (with-out-str (pretty-print {:quarter 1 :dime 0 :nickel 0 :penny 0})))))
+  (it "returns [4000 0 0 0] when given 100,000 cents"
+    (should= [4000 0 0 0] (coin-changer 100000)))
+
+  (it "returns crazy high numbers when given cents"
+    (should= [0 0 0 0] (coin-changer 1829482982))))
 
 (run-specs)
